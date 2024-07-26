@@ -2,7 +2,7 @@ import Image from "next/image";
 import { api } from "backend-api";
 
 async function getData() {
-  const response = await api.index.get();
+  const response = await api.api.tasks.index.get();
   return response;
 }
 
