@@ -1,25 +1,36 @@
 {
-	"name": "web",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "PORT=3005 next dev",
-		"build": "next build",
-		"start": "next start"
-	},
-	"dependencies": {
-		"backend-api": "workspace:../../packages/backend-api",
-		"react": "latest",
-		"react-dom": "latest",
-		"next": "latest"
-	},
-	"devDependencies": {
-		"typescript": "latest",
-		"@types/react": "latest",
-		"@types/node": "latest",
-		"@types/react-dom": "latest",
-		"autoprefixer": "latest",
-		"postcss": "latest",
-		"tailwindcss": "latest"
-	}
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@nextui-org/button": "^2.0.37",
+    "@nextui-org/link": "^2.0.34",
+    "@nextui-org/navbar": "^2.0.36",
+    "@nextui-org/switch": "^2.0.33",
+    "@nextui-org/system": "^2.2.5",
+    "@nextui-org/theme": "^2.2.9",
+    "@react-aria/ssr": "^3.9.5",
+    "@react-aria/visually-hidden": "^3.8.14",
+    "backend-api": "workspace:../../packages/backend-api",
+    "framer-motion": "^11.3.18",
+    "next": "latest",
+    "next-themes": "^0.3.0",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
 }

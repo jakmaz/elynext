@@ -8,14 +8,12 @@
   ],
   "scripts": {
     "dev": "concurrently \"cd apps/backend && bun dev\"  \"cd apps/web && bun --bun run dev\"",
-    "typecheck": "bunx --bun tsc",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint --apply .",
-    "format": "biome format .",
-    "format:fix": "biome format --write ."
+    "typecheck": "bunx --bun tsc"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.2.2",
     "concurrently": "^6.2.0"
+  },
+  "dependencies": {
+    "@react-aria/visually-hidden": "^3.8.14"
   }
 }
