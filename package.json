@@ -12,8 +12,5 @@
   },
   "devDependencies": {
     "concurrently": "^6.2.0"
-  },
-  "dependencies": {
-    "@react-aria/visually-hidden": "^3.8.14"
   }
 }
