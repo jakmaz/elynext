@@ -1,20 +1,16 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Delegations",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Todo App",
+  description: "A simple todo app built with Next.js and NextUI",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Trips",
-      href: "/trips",
+      label: "Tasks",
+      href: "/tasks",
     },
   ],
 };
