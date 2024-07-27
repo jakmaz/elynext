@@ -1,7 +1,7 @@
 {
-  "name": "bun-monorepo",
+  "name": "bun-eysia-nextjs-starter",
   "version": "0.0.1",
-  "description": "Elysia and NextJS monorepo starter",
+  "description": "A monorepo starter kit combining ElysiaJS and NextJS, with integrated Eden Connector and Drizzle ORM",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -12,6 +12,18 @@
     "web": "cd apps/web && bun dev",
     "typecheck": "bunx --bun tsc"
   },
+  "keywords": [
+    "ElysiaJS",
+    "NextJS",
+    "monorepo",
+    "starter kit",
+    "eden connector",
+    "drizzle ORM",
+    "bun",
+    "typescript",
+    "javascript",
+    "full stack"
+  ],
   "devDependencies": {
     "concurrently": "^6.2.0"
   }
