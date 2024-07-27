@@ -7,7 +7,9 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"cd apps/backend && bun dev\"  \"cd apps/web && bun run dev\"",
+    "dev": "concurrently \"cd apps/backend && bun dev\"  \"cd apps/web && bun dev\"",
+    "backend": "cd apps/backend && bun dev",
+    "web": "cd apps/web && bun dev",
     "typecheck": "bunx --bun tsc"
   },
   "devDependencies": {
