@@ -24,13 +24,16 @@ export default function Navbar() {
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarContent justify="start">
+      <NavbarContent justify="center">
         <NavbarBrand as="li" className="max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
             <p className="font-bold text-inherit">{siteConfig.companyName}</p>
           </NextLink>
         </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex" justify="start">
         <ul className="hidden sm:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href} isActive={usePathname() == item.href}>
