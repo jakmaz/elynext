@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Make&nbsp;</h1>
-        <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
+        <h1 className={title({})}>Make&nbsp;</h1>
+        <h1 className={title({ color: "blue" })}>beautiful&nbsp;</h1>
         <br />
         <h1 className={title()}>
           websites regardless of your design experience.
@@ -24,7 +24,7 @@ export default function Home() {
       <Link
         isExternal
         className={buttonStyles({ variant: "bordered", radius: "full" })}
-        href="www.github.com/jakmaz"
+        href="https://www.github.com/jakmaz"
       >
         <GithubIcon size={20} />
         GitHub
