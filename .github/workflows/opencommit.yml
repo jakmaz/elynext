@@ -35,7 +35,7 @@ jobs:
           OCO_TOKENS_MAX_OUTPUT: 500
           OCO_OPENAI_BASE_PATH: ''
           OCO_DESCRIPTION: false
-          OCO_EMOJI: false
+          OCO_EMOJI: true
           OCO_MODEL: gpt-3.5-turbo
           OCO_LANGUAGE: en
           OCO_PROMPT_MODULE: conventional-commit
