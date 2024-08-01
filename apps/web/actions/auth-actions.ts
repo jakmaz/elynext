@@ -1,5 +1,6 @@
 "use server";
 
+import { api } from "backend-api";
 import { schemaLogin, schemaRegister } from "@/types/validation";
 import { cookies } from "next/headers";
 
@@ -28,25 +29,18 @@ export async function registerUserAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const response = await fetch("http://localhost:4000/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(validatedFields.data),
-    });
+    const { data, error } = await api.auth.register.post(validatedFields.data);
 
-    if (!response.ok) {
-      const errorData = await response.json();
+    if (error) {
+      console.error(error);
       return updateState(prevState, {
-        message: errorData.message || "Failed to Register.",
+        message: error.value.message || "Failed to Register.",
       });
     }
 
-    const responseData = await response.json();
     return updateState(prevState, {
       message: "Registration successful.",
-      data: responseData,
+      data: data,
     });
   } catch (error) {
     console.error(error);
@@ -69,25 +63,19 @@ export async function loginUserAction(prevState: any, formData: FormData) {
   }
 
   try {
-    const response = await fetch("http://localhost:4000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(validatedFields.data),
-      credentials: "include", // Ensure cookies are included
+    const { data, error } = await api.auth.login.post({
+      email: "j.mazur.2004@gmail.com",
+      password: "password",
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
+    if (error) {
+      console.error(error.value);
       return updateState(prevState, {
-        message: errorData.message || "Failed to login.",
+        message: error.value.message || "Failed to login.",
       });
     }
 
-    const responseData = await response.json();
-
-    cookies().set("auth", responseData.token);
+    cookies().set("auth", data.token);
   } catch (error) {
     console.error("Error:", error);
     return updateState(prevState, {
