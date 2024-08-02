@@ -1,16 +1,17 @@
 {
-	"name": "backend",
-	"version": "1.0.0",
-	"main": "./src/index.ts",
-	"module": "src/index.ts",
-	"scripts": {
-		"dev": "bun run --watch src/index.ts"
-	},
-	"dependencies": {
-		"@elysiajs/cors": "^1.1.0",
-		"@elysiajs/jwt": "^1.1.0",
-		"@elysiajs/swagger": "^1.1.0",
-		"elysia": "latest",
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "module": "src/index.ts",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "backend-api": "workspace:../../packages/backend-api",
+    "@elysiajs/cors": "^1.1.0",
+    "@elysiajs/jwt": "^1.1.0",
+    "@elysiajs/swagger": "^1.1.0",
+    "elysia": "latest",
     "drizzle-orm": "^0.32.0",
     "postgres": "^3.4.4",
     "picocolors": "^1.0.1"
