@@ -1,6 +1,6 @@
 import { treaty } from "@elysiajs/eden";
-import type { App } from "backend";
+import { app } from "backend";
 
-export const api = treaty<App>("localhost:4000");
+export const api = treaty(app);
 
 export type GetTreatyType<T extends () => any> = Awaited<ReturnType<T>>["data"];
