@@ -1,4 +1,4 @@
-import { describe, expect, it } from "bun:test";
+import { afterAll, describe, expect, it } from "bun:test";
 import db from "../src/dbSqlLite/db";
 import { users } from "../src/dbSqlLite/schema";
 import { eq } from "drizzle-orm";
@@ -12,12 +12,16 @@ const testUser = {
 };
 
 describe("Auth Routes", () => {
+  afterAll(async () => {
+    // Clean up
+    await db.delete(users).where(eq(users.email, testUser.email));
+  });
   it("should register a new user successfully", async () => {
-    const response = await api.auth.register.post(testUser);
+    const { data, status } = await api.auth.register.post(testUser);
 
-    expect(response.status).toBe(200);
-    expect(response.data?.id).toBeTruthy();
-    expect(response.data?.email).toBe(testUser.email);
+    expect(status).toBe(200);
+    expect(data?.body.id).toBeTruthy();
+    expect(data?.body.email).toBe(testUser.email);
 
     // Verify the user is in the database
     const [user] = await db
@@ -29,39 +33,40 @@ describe("Auth Routes", () => {
   });
 
   it("should not register a user with an existing email", async () => {
-    const response = await api.auth.register.post(testUser);
+    const { error, status } = await api.auth.register.post(testUser);
 
-    expect(response.status).toBe(409);
+    expect(status).toBe(409);
+    expect(error?.value.message).toBe("User already exists");
   });
 
   it("should login successfully with correct credentials", async () => {
-    const response = await api.auth.login.post({
+    const { data, status } = await api.auth.login.post({
       email: testUser.email,
       password: testUser.password,
     });
 
-    expect(response.status).toBe(200);
-    expect(response.data?.token).toBeTruthy();
-    expect(response.data?.message ?? "").toBe("Login successful");
+    expect(status).toBe(200);
+    expect(data?.token).toBeTruthy();
+    expect(data?.message ?? "").toBe("Login successful");
   });
 
   it("should not login with incorrect password", async () => {
-    const response = await api.auth.login.post({
+    const { error, status } = await api.auth.login.post({
       email: testUser.email,
       password: "wrongpassword",
     });
 
-    expect(response.status).toBe(401);
-    expect(response.data?.message ?? "").toBe("Invalid password");
+    expect(status).toBe(401);
+    expect(error?.value.message).toBe("Invalid password");
   });
 
   it("should not login with non-existent email", async () => {
-    const response = await api.auth.login.post({
+    const { error, status } = await api.auth.login.post({
       email: "non.existent@example.com",
       password: "password123",
     });
 
-    expect(response.status).toBe(401);
-    expect(response.data?.message ?? "").toBe("User does not exist");
+    expect(status).toBe(401);
+    expect(error?.value.message).toBe("User does not exist");
   });
 });
