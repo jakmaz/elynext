@@ -58,7 +58,7 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
         .where(eq(users.email, body.email));
 
       if (!user) {
-        return error(401, { message: "User does not exist", body: null });
+        return error(401, { message: "User does not exist" });
       }
 
       const passwordMatch = await Bun.password.verify(
@@ -67,7 +67,7 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
       );
 
       if (!passwordMatch) {
-        return error(401, { message: "Invalid password", body: null });
+        return error(401, { message: "Invalid password" });
       }
 
       const token = await jwt.sign({ id: user.user_id, email: user.email });
