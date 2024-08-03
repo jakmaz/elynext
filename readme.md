@@ -1,47 +1,62 @@
-# Bun monorepo
+# Todos App
 
-This a demo of a monorepo using bun workspace.
+A simple starter fullstack todos app built with [Next.js](https://nextjs.org/) and [ElysiaJS](https://elysiajs.com/) using [Bun](https://bun.sh/). This project is purposefully kept minimal to serve as a starting point for beginner to intermediate developers.
 
-## What's inside?
+## 💻 Client
 
-This monorepo includes the following packages/apps:
+Uses the following tech stack:
 
-### Apps and Packages
+- 🌐 Web Framework: [Next.js](https://nextjs.org/) (React)
+- 🖌️ UI: [NextUI](https://nextui.org/)
+- 🎨 Styling: [TailwindCSS](https://tailwindcss.com/)
+- 🛠️ Icons: [Heroicons](https://heroicons.com/)
+- 🔧 Tooling: [Bun](https://bun.sh/)
 
-- `backend`: [Elysia.js](https://elysiajs.com/) app
-- `web`: [Next.js](https://nextjs.org/) app
-- `mobile`:  React Native [Expo](https://expo.dev/) + expo-router
-- `backend-api`: a shared end-to-end type safety package.
+## 🌐 Server
 
-### Utilities
+Uses the following tech stack:
 
-This monorepo has some additional tools already setup for you:
+- 🏃 Runtime: [Bun](https://bun.sh/)
+- 🌐 Server Framework: [Elysia](https://elysiajs.com/)
+- 🗄️ DB: [SQLite](https://www.sqlite.org/)
+- 🛠️ ORM: [Drizzle](https://github.com/drizzle-team/drizzle-orm)
+- ✅ Validation: [Typebox](https://github.com/sinclairzx81/typebox)
+- 🔄 End-to-End Type Safety: [Eden](https://github.com/eden-js/eden)
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Biome.js](https://biomejs.dev/) for code formatting and linting. It is recommended to install the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=biomejs.biome)
+## 🚀 Usage
 
-### Getting Started
+### 📦 Installing Dependencies
 
-To install and start developing all apps, run the following command:
+Run this command from the root directory:
 
 ```sh
 bun install
+```
+
+### 🟣 Starting Backend
+
+To start the Elysia server, run this command from the root directory:
+
+```sh
+bun dev:backend
+```
+
+### 🔵 Starting Frontend
+
+To start the Vite dev server, run this command from the root directory:
+
+```sh
+bun dev:web
+```
+
+### 🖥 Running Backend and Frontend in Split Window
+
+To run both the backend and frontend in split windows, you need to have `tmux` installed. Use the following command from the root directory:
+
+```sh
 bun dev
 ```
 
+## 👨‍💻 Show your Support
 
-### Others scripts
-
-
-```sh
-# type check all packages
-bun typecheck
-
-# format all packages
-bun format
-
-# lint all packages
-bun lint
-
-```
-
+Give a ⭐️ if this project helped you!

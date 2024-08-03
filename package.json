@@ -2,14 +2,17 @@
   "name": "bun-eysia-nextjs-starter",
   "version": "0.0.1",
   "description": "A monorepo starter kit combining ElysiaJS and NextJS, with integrated Eden Connector and Drizzle ORM",
+  "repository": {
+    "url": "https://github.com/jakmaz/bun-elysia-next-starter"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"cd apps/backend && bun dev\"  \"cd apps/web && bun dev\"",
-    "backend": "cd apps/backend && bun dev",
-    "web": "cd apps/web && bun dev",
+    "dev": "tmux new-session -d -s bunelysianextstarter 'cd apps/backend && bun dev' \\; split-window -h 'cd apps/web && bun dev' \\; attach -t myapp",
+    "dev:backend": "cd apps/backend && bun dev",
+    "dev:web": "cd apps/web && bun dev",
     "typecheck": "bunx --bun tsc"
   },
   "keywords": [
@@ -23,8 +26,5 @@
     "typescript",
     "javascript",
     "full stack"
-  ],
-  "devDependencies": {
-    "concurrently": "^6.2.0"
-  }
+  ]
 }
