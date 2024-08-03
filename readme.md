@@ -55,6 +55,8 @@ To run both the backend and frontend in split windows, you need to have `tmux` i
 ```sh
 bun dev
 ```
+<img width="962" alt="image" src="https://github.com/user-attachments/assets/44018181-6231-4ef8-bb53-96dd75813e3d">
+
 
 ## 👨‍💻 Show your Support
 
