@@ -1,4 +1,4 @@
-# Todos App
+# ElyNext - Modern Full Stack Starter
 
 A simple starter fullstack todos app built with [Next.js](https://nextjs.org/) and [ElysiaJS](https://elysiajs.com/) using [Bun](https://bun.sh/). This project is purposefully kept minimal to serve as a starting point for beginner to intermediate developers.
 
