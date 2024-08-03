@@ -21,8 +21,7 @@ Uses the following tech stack:
 - 🗄️ DB: [SQLite](https://www.sqlite.org/)
 - 🛠️ ORM: [Drizzle](https://github.com/drizzle-team/drizzle-orm)
 - ✅ Validation: [Typebox](https://github.com/sinclairzx81/typebox)
-- 🔄 End-to-End Type Safety: [Eden](https://github.com/eden-js/eden)
-
+- 🔄 End-to-End Type Safety: [Eden](https://github.com/elysiajs/eden)
 ## 🚀 Usage
 
 ### 📦 Installing Dependencies
