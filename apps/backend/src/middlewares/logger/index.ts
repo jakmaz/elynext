@@ -1,7 +1,6 @@
 import pc from "picocolors";
 import Elysia from "elysia";
 import * as fmt from "./formatters";
-import fs from "fs";
 import { formatTimestamp } from "./formatters";
 
 interface Options {
@@ -16,13 +15,13 @@ interface Options {
 // Function to print the banner
 function printBanner(duration: number, serverUrl: string) {
   console.log(
-    `🚚 ${pc.green(`${pc.bold("Delegations server")} v0.0.1`)} ${pc.gray("started in")} ${pc.bold(duration.toFixed(2))} ms\n`,
+    `🚚 ${pc.green(`${pc.bold("Elysia server")}`)} ${pc.gray("started in")} ${pc.bold(duration.toFixed(2))} ms\n`,
   );
   console.log(
     `${pc.green(" ➜ ")} ${pc.bold("Server")}:   ${pc.cyan(serverUrl)}`,
   );
   console.log(
-    `${pc.green(" ➜ ")} ${pc.bold("Database")}: ${pc.cyan("database")}`,
+    `${pc.green(" ➜ ")} ${pc.bold("Database")}: ${pc.cyan("sqlite")}`,
     "\n",
   );
 }
@@ -40,7 +39,7 @@ const shouldLog = (
 const logMessage = (components: string[], logToFile?: string) => {
   const message = components.join(" ");
   if (logToFile) {
-    fs.appendFileSync(logToFile, message + "\n");
+    Bun.write(logToFile, message + "\n");
   } else {
     console.log(message);
   }

@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "tmux new-session -d -s bunelysianextstarter 'cd apps/backend && bun dev' \\; split-window -h 'cd apps/web && bun dev' \\; attach -t myapp",
+    "dev": "tmux new-session -d -s bun-app 'cd apps/backend && bun dev' \\; split-window -h 'cd apps/web && bun dev' \\; attach -t bun-app",
     "dev:backend": "cd apps/backend && bun dev",
     "dev:web": "cd apps/web && bun dev",
     "typecheck": "bunx --bun tsc"
