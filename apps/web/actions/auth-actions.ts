@@ -80,6 +80,10 @@ export async function loginUserAction(prevState: any, formData: FormData) {
     }
 
     cookies().set("auth", data.token);
+
+    return updateState(prevState, {
+      message: "Login successful.",
+    });
   } catch (error) {
     console.error("Error:", error);
 

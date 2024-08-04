@@ -16,7 +16,7 @@ export function SignUpSubmitButton() {
 
   return (
     <Button color="primary" isLoading={status.pending} type="submit">
-      {status.pending ? "Logging In..." : "Log In"}
+      {status.pending ? "Signing Up..." : "Sign Up"}
     </Button>
   );
 }
