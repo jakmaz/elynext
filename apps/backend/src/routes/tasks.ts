@@ -12,7 +12,7 @@ export const tasksRoutes = new Elysia({ prefix: "/tasks" })
       const todos = await db
         .select()
         .from(tasks)
-        .where(eq(tasks.user_id, user.id));
+        .where(eq(tasks.userId, user.id));
       return { message: "Todos found", body: todos };
     },
     { requireAuth: true },
@@ -27,7 +27,7 @@ export const tasksRoutes = new Elysia({ prefix: "/tasks" })
         .values({
           title,
           description,
-          user_id: user.id,
+          userId: user.id,
         })
         .returning();
       return { message: "Task created", body: task };

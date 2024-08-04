@@ -5,8 +5,8 @@ import { eq } from "drizzle-orm";
 import { api } from "backend-api";
 
 const testUser = {
-  first_name: "John",
-  last_name: "Doe",
+  firstName: "John",
+  lastName: "Doe",
   email: "john.doe@example.com",
   password: "password123",
 };

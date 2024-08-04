@@ -9,7 +9,7 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
   .post(
     "/register",
     async ({ body }) => {
-      const { first_name, last_name, email, password } = body;
+      const { firstName, lastName, email, password } = body;
 
       const [user] = await db
         .select()
@@ -25,8 +25,8 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
       const [newUser] = await db
         .insert(users)
         .values({
-          first_name,
-          last_name,
+          firstName,
+          lastName,
           email,
           password: hashedPassword,
         })
@@ -35,15 +35,15 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
       return {
         message: "Register successful",
         body: {
-          id: newUser.user_id,
+          id: newUser.userId,
           email: newUser.email,
         },
       };
     },
     {
       body: t.Object({
-        first_name: t.String(),
-        last_name: t.String(),
+        firstName: t.String(),
+        lastName: t.String(),
         email: t.String(),
         password: t.String(),
       }),
@@ -70,7 +70,7 @@ export const authRoutes = new Elysia({ prefix: "/auth" })
         return error(401, { message: "Invalid password" });
       }
 
-      const token = await jwt.sign({ id: user.user_id, email: user.email });
+      const token = await jwt.sign({ id: user.userId, email: user.email });
 
       cookie.auth.set({
         value: token,

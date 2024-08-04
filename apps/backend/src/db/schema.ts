@@ -3,9 +3,9 @@ import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core";
 
 // Users Table
 export const users = sqliteTable("users", {
-  user_id: integer("user_id").primaryKey({ autoIncrement: true }),
-  first_name: text("first_name", { length: 50 }).notNull(),
-  last_name: text("last_name", { length: 50 }).notNull(),
+  userId: integer("user_id").primaryKey({ autoIncrement: true }),
+  firstName: text("first_name", { length: 50 }).notNull(),
+  lastName: text("last_name", { length: 50 }).notNull(),
   email: text("email", { length: 100 }).notNull().unique(),
   password: text("password", { length: 255 }).notNull(),
   created_at: text("created_at").default(sql`CURRENT_TIMESTAMP`),
@@ -14,7 +14,7 @@ export const users = sqliteTable("users", {
 // Todos Table
 export const tasks = sqliteTable("tasks", {
   id: integer("id").primaryKey(),
-  user_id: integer("user_id").notNull(),
+  userId: integer("user_id").notNull(),
   title: text("title").notNull(),
   description: text("description"),
   completed: integer("completed", { mode: "boolean" }).notNull().default(false),
