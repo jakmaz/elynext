@@ -67,7 +67,7 @@ bun dev
 
 ## 🧪 Backend Unit Tests
 
-To run the backend unit tests, use the following command:
+To run the backend unit tests, use the following command in backend directory:
 
 ```sh
 bun test
@@ -100,6 +100,4 @@ http://localhost:4000/swagger
 ## 👨‍💻 Show your Support
 
 Give a ⭐️ if this project helped you!
-```
 
-This README includes the additional features, detailed usage instructions, and links for support.
