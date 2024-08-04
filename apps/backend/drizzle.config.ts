@@ -10,5 +10,5 @@ export default {
   driver: "turso",
   out: "./drizzle",
   breakpoints: true,
-  schema: "./src/dbSqlLite/schema.ts",
+  schema: "./src/db/schema.ts",
 } satisfies Config;

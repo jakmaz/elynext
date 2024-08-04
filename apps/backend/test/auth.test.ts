@@ -1,6 +1,6 @@
 import { afterAll, describe, expect, it } from "bun:test";
-import db from "../src/dbSqlLite/db";
-import { users } from "../src/dbSqlLite/schema";
+import db from "../src/db/db";
+import { users } from "../src/db/schema";
 import { eq } from "drizzle-orm";
 import { api } from "backend-api";
 
@@ -16,6 +16,7 @@ describe("Auth Routes", () => {
     // Clean up
     await db.delete(users).where(eq(users.email, testUser.email));
   });
+
   it("should register a new user successfully", async () => {
     const { data, status } = await api.auth.register.post(testUser);
 

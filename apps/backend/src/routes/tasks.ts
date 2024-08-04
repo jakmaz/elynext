@@ -1,41 +1,42 @@
-import Elysia from "elysia";
+import Elysia, { t } from "elysia";
+import db from "../db/db";
+import { tasks } from "../db/schema";
+import { jwtValidation } from "../middlewares/auth";
+import { eq } from "drizzle-orm";
 
-const tasksData = [
-  {
-    id: 1,
-    title: "Write Unit Tests",
-    description: "Write unit tests for the user authentication module.",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Update Documentation",
-    description: "Update the API documentation to include the new endpoints.",
-    completed: true,
-  },
-  {
-    id: 3,
-    title: "Fix Bug #234",
-    description:
-      "Investigate and fix the reported issue in the payment processing module.",
-    completed: false,
-  },
-  {
-    id: 4,
-    title: "Deploy to Staging",
-    description:
-      "Deploy the latest build to the staging environment for QA testing.",
-    completed: true,
-  },
-  {
-    id: 5,
-    title: "Code Review",
-    description: "Review the code changes submitted by team members.",
-    completed: false,
-  },
-];
+export const tasksRoutes = new Elysia({ prefix: "/tasks" })
+  .use(jwtValidation)
+  .get(
+    "/",
+    async ({ user }) => {
+      const todos = await db
+        .select()
+        .from(tasks)
+        .where(eq(tasks.user_id, user.id));
+      return { message: "Todos found", body: todos };
+    },
+    { requireAuth: true },
+  )
+  .post(
+    "/",
+    async ({ user, body }) => {
+      const { title, description } = body;
 
-export const tasksRoutes = new Elysia({ prefix: "/tasks" }).get(
-  "/",
-  () => tasksData,
-);
+      const [task] = await db
+        .insert(tasks)
+        .values({
+          title,
+          description,
+          user_id: user.id,
+        })
+        .returning();
+      return { message: "Task created", body: task };
+    },
+    {
+      requireAuth: true,
+      body: t.Object({
+        title: t.String(),
+        description: t.String(),
+      }),
+    },
+  );

@@ -12,9 +12,11 @@ export const users = sqliteTable("users", {
 });
 
 // Todos Table
-export const todos = sqliteTable("todos", {
-  id: text("id").primaryKey(),
+export const tasks = sqliteTable("tasks", {
+  id: integer("id").primaryKey(),
+  user_id: integer("user_id").notNull(),
   title: text("title").notNull(),
+  description: text("description"),
   completed: integer("completed", { mode: "boolean" }).notNull().default(false),
   createdAt: integer("created_at", { mode: "number" })
     .default(sql`(strftime('%s', 'now'))`)

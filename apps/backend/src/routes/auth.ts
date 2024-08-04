@@ -1,8 +1,8 @@
 import Elysia, { error, t } from "elysia";
 import { jwtConfig } from "../middlewares/auth";
 import { eq } from "drizzle-orm";
-import { users } from "../dbSqlLite/schema";
-import db from "../dbSqlLite/db";
+import { users } from "../db/schema";
+import db from "../db/db";
 
 export const authRoutes = new Elysia({ prefix: "/auth" })
   .use(jwtConfig)
