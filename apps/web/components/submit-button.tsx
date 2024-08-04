@@ -3,8 +3,9 @@ import { useFormStatus } from "react-dom";
 
 export function LoginSubmitButton() {
   const status = useFormStatus();
+
   return (
-    <Button type="submit" color="primary" isLoading={status.pending}>
+    <Button color="primary" isLoading={status.pending} type="submit">
       {status.pending ? "Logging In..." : "Log In"}
     </Button>
   );
@@ -12,8 +13,9 @@ export function LoginSubmitButton() {
 
 export function SignUpSubmitButton() {
   const status = useFormStatus();
+
   return (
-    <Button type="submit" color="primary" isLoading={status.pending}>
+    <Button color="primary" isLoading={status.pending} type="submit">
       {status.pending ? "Logging In..." : "Log In"}
     </Button>
   );

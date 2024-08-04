@@ -1,6 +1,5 @@
 "use client";
 
-import { registerUserAction } from "@/actions/auth-actions";
 import {
   EnvelopeIcon,
   LockClosedIcon,
@@ -10,8 +9,11 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import Link from "next/link";
 import { useFormState } from "react-dom";
+
 import { SignUpSubmitButton } from "./submit-button";
 import { ErrorMessage } from "./auth-error-message";
+
+import { registerUserAction } from "@/actions/auth-actions";
 
 const INITIAL_STATE = {
   data: null,
@@ -24,6 +26,7 @@ export default function SignUpForm() {
   );
 
   console.log(formState);
+
   return (
     <form action={formAction}>
       <div className="flex flex-col gap-4 min-w-96">
@@ -33,58 +36,58 @@ export default function SignUpForm() {
           endContent={
             <UserIcon className="h-5 w-5 text-default-400 pointer-events-none flex-shrink-0" />
           }
-          name="firstName"
+          errorMessage={formState?.zodErrors?.first_name}
+          isInvalid={formState?.zodErrors?.first_name}
           label="First Name"
           labelPlacement="outside"
+          name="firstName"
           placeholder="Enter your first name"
           variant="bordered"
-          isInvalid={formState?.zodErrors?.first_name}
-          errorMessage={formState?.zodErrors?.first_name}
         />
         <Input
           endContent={
             <UserIcon className="h-5 w-5 text-default-400 pointer-events-none flex-shrink-0" />
           }
-          name="lastName"
+          errorMessage={formState?.zodErrors?.last_name}
+          isInvalid={formState?.zodErrors?.last_name}
           label="Last Name"
           labelPlacement="outside"
+          name="lastName"
           placeholder="Enter your last name"
           variant="bordered"
-          isInvalid={formState?.zodErrors?.last_name}
-          errorMessage={formState?.zodErrors?.last_name}
         />
         <Input
           endContent={
             <EnvelopeIcon className="h-5 w-5 text-default-400 pointer-events-none flex-shrink-0" />
           }
-          name="email"
+          errorMessage={formState?.zodErrors?.email}
+          isInvalid={formState?.zodErrors?.email}
           label="Email"
           labelPlacement="outside"
+          name="email"
           placeholder="Enter your email"
           variant="bordered"
-          isInvalid={formState?.zodErrors?.email}
-          errorMessage={formState?.zodErrors?.email}
         />
         <Input
           endContent={
             <LockClosedIcon className="h-5 w-5 text-default-400 pointer-events-none flex-shrink-0" />
           }
-          name="password"
+          errorMessage={formState?.zodErrors?.password}
+          isInvalid={formState?.zodErrors?.password}
           label="Password"
           labelPlacement="outside"
+          name="password"
           placeholder="Enter your password"
           type="password"
           variant="bordered"
-          isInvalid={formState?.zodErrors?.password}
-          errorMessage={formState?.zodErrors?.password}
         />
         <SignUpSubmitButton />
         <ErrorMessage message={formState.message} />
         <Button
           as={Link}
+          className="text-primary"
           href="/login"
           variant="light"
-          className="text-primary"
         >
           Already have an account? Log In
         </Button>

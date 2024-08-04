@@ -10,12 +10,13 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
+
+import AuthButton from "./auth-button";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Logo } from "@/components/icons";
-import AuthButton from "./auth-button";
-import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   return (

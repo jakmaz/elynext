@@ -12,6 +12,7 @@ const AuthButton = () => {
     const token = document.cookie
       .split("; ")
       .find((row) => row.startsWith("auth="));
+
     setIsAuthenticated(!!token);
     console.log("isAuthenticated", isAuthenticated);
   }, []);
@@ -23,7 +24,7 @@ const AuthButton = () => {
   };
 
   return isAuthenticated ? (
-    <Button onClick={handleLogout} color="primary" variant="flat">
+    <Button color="primary" variant="flat" onClick={handleLogout}>
       Logout
     </Button>
   ) : (

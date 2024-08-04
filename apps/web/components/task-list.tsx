@@ -1,4 +1,5 @@
 import { api, GetTreatyType } from "backend-api/src/eden";
+
 import Task from "./task";
 
 export type TasksType = GetTreatyType<typeof api.tasks.index.get>;

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "bun src/index.ts",
     "dev": "bun run --watch src/index.ts",
+    "typecheck": "bunx --bun tsc",
     "db:pull": "drizzle-kit pull",
     "db:push": "drizzle-kit push",
     "db:check": "drizzle-kit check",

@@ -1,8 +1,9 @@
 "use server";
 
 import { api } from "backend-api";
-import { schemaLogin, schemaRegister } from "@/types/validation";
 import { cookies } from "next/headers";
+
+import { schemaLogin, schemaRegister } from "@/types/validation";
 
 // Utility function to update state
 function updateState(prevState: any, updates: any) {
@@ -33,6 +34,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
 
     if (error) {
       console.error(error);
+
       return updateState(prevState, {
         message: error.value.message || "Failed to Register.",
       });
@@ -44,6 +46,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
     });
   } catch (error) {
     console.error(error);
+
     return updateState(prevState, {
       message: "Ops! Something went wrong. Please try again later.",
     });
@@ -70,6 +73,7 @@ export async function loginUserAction(prevState: any, formData: FormData) {
 
     if (error) {
       console.error(error.value);
+
       return updateState(prevState, {
         message: error.value.message || "Failed to login.",
       });
@@ -78,6 +82,7 @@ export async function loginUserAction(prevState: any, formData: FormData) {
     cookies().set("auth", data.token);
   } catch (error) {
     console.error("Error:", error);
+
     return updateState(prevState, {
       message: "Ops! Something went wrong. Please try again later.",
     });
