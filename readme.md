@@ -22,6 +22,13 @@ Uses the following tech stack:
 - 🛠️ ORM: [Drizzle](https://github.com/drizzle-team/drizzle-orm)
 - ✅ Validation: [Typebox](https://github.com/sinclairzx81/typebox)
 - 🔄 End-to-End Type Safety: [Eden](https://github.com/elysiajs/eden)
+
+## 📋 Features
+
+- 📝 Backend Unit Tests: Comprehensive unit tests for backend routes
+- 💾 Drizzle Kit Integration: Seamless database migrations and schema management.
+- 📖 Swagger Documentation: Auto-generated API documentation with Swagger for easy API exploration and testing.
+
 ## 🚀 Usage
 
 ### 📦 Installing Dependencies
@@ -42,7 +49,7 @@ bun dev:backend
 
 ### 🔵 Starting Frontend
 
-To start the Vite dev server, run this command from the root directory:
+To start the Next.js dev server, run this command from the root directory:
 
 ```sh
 bun dev:web
@@ -55,9 +62,44 @@ To run both the backend and frontend in split windows, you need to have `tmux` i
 ```sh
 bun dev
 ```
+
 <img width="962" alt="image" src="https://github.com/user-attachments/assets/44018181-6231-4ef8-bb53-96dd75813e3d">
 
+## 🧪 Backend Unit Tests
+
+To run the backend unit tests, use the following command:
+
+```sh
+bun test
+```
+
+## 🔧 Drizzle Kit Integration
+
+To run database migrations using Drizzle Kit, use the following commands:
+
+- **Generate migration:**
+
+  ```sh
+  drizzle-kit generate:migration
+  ```
+
+- **Run migrations:**
+
+  ```sh
+  drizzle-kit migrate
+  ```
+
+## 📖 Swagger Documentation
+
+The Swagger documentation is auto-generated and can be accessed at:
+
+```
+http://localhost:4000/swagger
+```
 
 ## 👨‍💻 Show your Support
 
 Give a ⭐️ if this project helped you!
+```
+
+This README includes the additional features, detailed usage instructions, and links for support.
